@@ -1,6 +1,6 @@
 # testkey 🧪
 
-[![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions)
+[![CI](https://github.com/rwilson5157/testKey/actions/workflows/ci.yml/badge.svg)](https://github.com/rwilson5157/testKey/actions)
 
 Small test project that demonstrates loading environment variables and running tests.
 
