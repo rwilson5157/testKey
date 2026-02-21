@@ -1,7 +1,10 @@
 # testkey.py - test file for project testKey
 
 import os
+import sys
 from typing import Dict
+
+from .snake import run_snake_game
 
 
 def load_env() -> Dict[str, str]:
@@ -14,7 +17,11 @@ def load_env() -> Dict[str, str]:
 
 
 def main():
-    print("Hello from t.stkey.py in project testKey")
+    if len(sys.argv) > 1 and sys.argv[1] == "snake":
+        run_snake_game()
+        return
+    print("Hello from testkey in project testKey")
+    print("Run `testkey snake` to play Snake.")
     # Do not print environment-sensitive values by default.
 
 

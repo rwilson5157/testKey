@@ -31,12 +31,36 @@ Option B — using `pyproject.toml` optional dependencies (if you prefer):
 python -m pip install -e '.[dev]'
 ```
 
+Note: `-e '.[dev]'` installs this project in editable mode plus the `dev` extras (currently `pytest`).
+In offline or restricted network environments, you may need to create the venv with
+`python -m venv --system-site-packages .venv` so build tooling like `setuptools` is available locally.
+
 ### Run tests
 
 ```bash
 # from project root (with the virtualenv activated)
 python -m pytest -q
 ```
+
+### Run Snake
+
+```bash
+# from project root (with the virtualenv activated)
+python -m testkey snake
+```
+
+Controls:
+- Arrow keys or `W/A/S/D` to move
+- `P` to pause/resume
+- `R` to restart after game over (or anytime)
+- `Q` to quit
+
+Manual verification checklist:
+- Controls move exactly one grid cell per tick and reverse direction is blocked.
+- Eating food increases score by 1 and grows snake length by 1.
+- Hitting walls or self ends the game and freezes movement.
+- `P` toggles pause/resume without changing score or position while paused.
+- `R` restarts to a fresh game state with score reset to 0.
 
 ---
 
@@ -47,7 +71,3 @@ This project reads the following environment variables in `testkey.load_env()`:
 - `OPENAI`
 
 If a variable is missing, `load_env()` returns a default placeholder (e.g. `<KIMI not set>`).
-
----
-
-If you want, I can add a GitHub Actions workflow to run tests on push. 👍
